@@ -12,6 +12,7 @@
 
 import sys
 import os
+import guzzle_sphinx_theme
 
 # dirname dirname gives the src dir which has task_forge
 sys.path.insert(0, os.path.abspath('./src'))
@@ -77,7 +78,17 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'guzzle_sphinx_theme'
+html_theme_path = guzzle_sphinx_theme.html_theme_path()
+
+# Register the theme as an extension to generate a sitemap.xml
+extensions.append("guzzle_sphinx_theme")
+
+html_theme_options = {
+    # Set the name of the project to appear in the sidebar
+    "project_nav_name": "Taskforge",
+    "projectlink": "/",
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
